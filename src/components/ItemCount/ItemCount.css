@@ -1,0 +1,36 @@
+.CounterSection{
+    display: flex;
+    flex-direction: row;
+    width: 30%; 
+    margin: auto;  
+    justify-content:center ;
+    margin-top: 5%;
+    padding: 5% 3% 3% 3%;
+    border: 2px solid grey;
+}
+
+.CounterSection button{
+  margin: 0% 10% 0% 10%;
+  font-size: 1.5rem;
+  border: none;
+  background-color: #fff;
+}
+
+.CounterSection button .up{
+    color: rgb(89, 190, 75);  
+  }
+
+.CounterSection button .down{
+  color: rgb(206, 86, 38);  
+}
+
+.CounterSection p{
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0%;  
+  }
+
+
+
+
