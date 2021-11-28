@@ -1,25 +1,37 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
 import './ItemListContainer.css';
-import Item from '../Item.js/Item';
+import ItemList from '../ItemList/ItemList';
+import Spinner from '../Spinner/Spinner'
 
 
-const ItemListContainer = ({foto}) => {
-     
+const ItemListContainer = () => {
+
+  const [items, setItems] = useState ([])
+  
+  const[isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(()=>{
+      fetch('https://jsonplaceholder.typicode.com/photos')
+      .then((response)=> response.json())
+      .then(respJSON=> {setItems(respJSON); console.log(respJSON)})
+      .catch(error => console.log('Error: ', error))
+    },)
+    
+   setTimeout(()=>{
+    setIsLoading(false);
+   },1000);      
+  }, [])
+
+ 
     return (
-        <div className="listContainer">
-         <h1>Productos</h1>
-          <div className="contenido">         
-            {foto.map((foto) => {
-              return (
-                <div key={foto.id}>
-                    <Item data={foto}  />
-                </div>
-                )
-            })}
-          </div>            
+        <div className="listContainer">   
+          
+          {isLoading ? <Spinner /> :  <ItemList items={items} />}
+         
         </div>
+             
     );
 }
-
 
 export default ItemListContainer;

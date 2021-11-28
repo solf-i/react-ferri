@@ -1,19 +1,36 @@
-import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import React from 'react'
 import './Item.css'
+import ItemCount from '../ItemCount/ItemCount'
+import Swal from 'sweetalert2'
+
+const Item = ({ item }) => {
+
+	const addToCart = (counter) => {
+		let prod;
+	   counter > 1? prod = 'productos' : prod = 'producto';
+	   Swal.fire(`Agregaste ${counter} ${prod} al carrito.`)
+	  }
+		 
+  return (
+    <>
+	   <div className="ui cards">        
+             <div className="card">
+             <div className="image">
+                 <img src={item.thumbnailUrl} alt="imagen" width={150}/>
+             </div>
+             <div className="content">
+                 <div className="header" height={80}>{item.title}</div>
+                 <div className="description">{item.title}</div>
+				
+             </div>	 
+			 <ItemCount stock={5} initial={0} onAdd={addToCart} />  
+             </div>   
+        </div>
 
 
-const Item = ({ data }) => {
 
-    return (
-    <Card className="card">
-		<Image src={data.thumbnailUrl} wrapped ui={false} />
-		<Card.Content>
-			<Card.Header>{data.title}</Card.Header>
-			
-		</Card.Content>
-	</Card>
-    )
+    </>
+  )
 }
 
 export default Item
