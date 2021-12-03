@@ -9,7 +9,7 @@ const NavBar = () => {
         <NavLink to='/' className='item '> Cheers!</NavLink>
         <NavLink to='/category/MLA1404' className='item '> Vinos </NavLink>    
         <NavLink to='/category/MLA417665' className='item '> Espumantes </NavLink>        
-        <NavLink to='/category/MLA403656' className='item '> Cervezas </NavLink>        
+        <NavLink to='/category/MLA1416' className='item '> Licores </NavLink>        
         <NavLink to='/' className='item '>  <CartWidget /> </NavLink>
       </div>
     </>
