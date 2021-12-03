@@ -1,27 +1,30 @@
-import {useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 
-const ItemDetailContainer = () => {
-    
-  const [item, setItem] = useState ({})
+const ItemDetailContainer = ({ categoryId }) => {
 
-  
-  useEffect(() => {
 
-    setTimeout(()=>{
-      fetch('https://jsonplaceholder.typicode.com/photos')
-      .then((response)=> response.json())
-      .then(respJSON=> {setItem(respJSON); console.log(respJSON)})
-      .catch(error => console.log('Error: ', error))
-    }, 0)
+  const [item, setItem] = useState([])
+ 
 
-}, [])
+  useEffect(() => {   
 
-    return (
-        <>
-         <ItemDetail item={item}/>   
-        </>
+    fetch(
+      `https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}&limit=10`
     )
+      .then(response => response.json())
+      .then(respJSON => {
+        setItem(respJSON.results)
+      })
+      .catch(error => console.log('Error: ', error))
+       
+  }, [categoryId]);
+
+  return (
+    <>
+      <ItemDetail item={item} />
+    </>
+  )
 }
 
 export default ItemDetailContainer

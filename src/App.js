@@ -1,28 +1,27 @@
-import React from "react";
-import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react'
+import './App.css'
+import 'semantic-ui-css/semantic.min.css'
+import NavBar from './components/NavBar/NavBar'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Home from './views/Home'
+import Category from './views/Category'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App () {
-  
-   return (
-     <div className="App">
-     <Router>     
-     <NavBar />
-
-       <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+  return (
+    <>
+      <Router>
+        <div className='App'>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/category/:categoryId' element={<Category />}></Route>
+            <Route path='/item/:id' element={<ItemDetailContainer />}></Route>
+          </Routes>
+        </div>
       </Router>
-     
-       <ItemListContainer />
-       <ItemDetailContainer />
-     </div>   
-    );
-  
+    </>
+  )
 }
 
-export default App;
+export default App
