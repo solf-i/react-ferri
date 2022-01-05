@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react'
-import Swal from 'sweetalert2'
 
 export const CartContext = createContext()
 
@@ -19,10 +18,6 @@ export function CartProvider ({ children }) {
         qty: qty
       }
     ])
-
-    let prod
-    qty > 1 ? (prod = 'productos') : (prod = 'producto')
-    Swal.fire(`Agregaste ${qty} ${prod} al carrito.`)
   }
 
   const removeItem = id => {

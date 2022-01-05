@@ -19,7 +19,7 @@ import ItemCard from '../../components/ItemCard/ItemCard'
 import ItemCount from '../../components/ItemCount/ItemCount'
 import './ItemDetail.css'
 
-function ItemDetail () {
+function ItemDetail ({ item }) {
   const [itemsData, setItemsData] = useState([])
   const { addItem } = useContext(CartContext)
   const paramsID = useParams()
@@ -47,7 +47,7 @@ function ItemDetail () {
         <ItemCard data={album} key={album.title} />
       ))}
 
-      <ItemCount stock={5} initial={0} onAdd={addItem} />
+      <ItemCount item={item} stock={5} initial={0} onAdd={addItem} />
 
       <Link to='/cart'>
         <Button color='teal' className='ui fluid button tile boton'>

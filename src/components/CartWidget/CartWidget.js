@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Icon } from 'semantic-ui-react'
 import { CartContext } from '../../CartContext/CartContext'
+import { Link } from 'react-router-dom'
 
 function CartWidget () {
   const { items } = useContext(CartContext)
@@ -10,7 +11,9 @@ function CartWidget () {
 
   return (
     <div>
-      <Icon name='shopping cart' />
+      <Link to='/cart'>
+        <Icon name='shopping cart' />
+      </Link>
       <span>{itemsInCart}</span>
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import './ItemCount.css'
 import { CartContext } from '../../CartContext/CartContext'
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, item }) => {
   const [qty, setQty] = useState(initial)
   const { addItem } = useContext(CartContext)
 
@@ -36,7 +36,7 @@ const ItemCount = ({ stock, initial }) => {
         {qty > 0 ? (
           <div
             className='ui bottom attached button'
-            onClick={() => addItem(qty)}
+            onClick={() => addItem(item, qty)}
           >
             <i className='cart icon'></i>
             Añadir al carrito
