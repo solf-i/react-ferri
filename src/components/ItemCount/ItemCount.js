@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './ItemCount.css'
+import { CartContext } from '../../CartContext/CartContext'
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-  const [counter, setCounter] = useState(initial)
+const ItemCount = ({ stock, initial }) => {
+  const [qty, setQty] = useState(initial)
+  const { addItem } = useContext(CartContext)
 
   const Up = () => {
-    if (counter < stock) {
-      setCounter(counter + 1)
+    if (qty < stock) {
+      setQty(qty + 1)
     }
   }
 
   const Down = () => {
-    if (counter > 0) {
-      setCounter(counter - 1)
+    if (qty > 0) {
+      setQty(qty - 1)
     }
   }
 
@@ -24,17 +26,17 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <div className='ui basic red button' onClick={Down}>
               -
             </div>
-            <div className='ui basic button'>{counter}</div>
+            <div className='ui basic button'>{qty}</div>
             <div className='ui basic green button' onClick={Up}>
               +
             </div>
           </div>
         </div>
 
-        {counter > 0 ? (
+        {qty > 0 ? (
           <div
             className='ui bottom attached button'
-            onClick={() => onAdd(counter)}
+            onClick={() => addItem(qty)}
           >
             <i className='cart icon'></i>
             Añadir al carrito

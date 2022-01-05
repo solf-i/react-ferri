@@ -1,13 +1,19 @@
-import React from 'react'
-import {Icon} from 'semantic-ui-react'
+import React, { useContext } from 'react'
+import { Icon } from 'semantic-ui-react'
+import { CartContext } from '../../CartContext/CartContext'
 
-const CartWidget = () => {
+function CartWidget () {
+  const { items } = useContext(CartContext)
+  let itemsInCart = 0
 
- return (
-     <div>
-         <Icon name='shopping cart' /> 
-     </div>
- )
+  items.map(item => (itemsInCart += item.qty))
+
+  return (
+    <div>
+      <Icon name='shopping cart' />
+      <span>{itemsInCart}</span>
+    </div>
+  )
 }
 
-export default CartWidget;
+export default CartWidget
