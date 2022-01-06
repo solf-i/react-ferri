@@ -1,12 +1,12 @@
-# Proyecto con Create React App
+## Proyecto con Create React App
 
 Este proyecto es parte del Curso de React.js de Coder House. El objetivo es desarrollar un e-commerce ficticio.
 
-# Librerías utilizadas
+## Librerías utilizadas
 
 Se utiliza Semantic UI React.
 
-# Dependencias
+## Dependencias
 
 "@testing-library/jest-dom": "^5.15.1",
 "@testing-library/react": "^11.2.7",
@@ -19,6 +19,8 @@ Se utiliza Semantic UI React.
 "semantic-ui-react": "^2.0.4",
 "web-vitals": "^1.1.2"
 
+##GIF de la App
 
+![video](https://user-images.githubusercontent.com/82688865/148316942-2e183e2e-e5e8-4c0b-9a75-e6af3109f128.gif)
 
 
