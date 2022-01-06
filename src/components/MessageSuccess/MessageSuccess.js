@@ -6,7 +6,13 @@ const MessageSuccess = ({ msg }) => (
     success
     header='Su número de registro es: '
     content={msg.id}
-    style={{ textAlign: 'center' }}
+    style={{
+      textAlign: 'center',
+      width: 300,
+      margin: 'auto',
+      color: 'black',
+      backgroundColor: 'white'
+    }}
   />
 )
 

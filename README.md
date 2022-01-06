@@ -19,3 +19,6 @@ Se utiliza Semantic UI React.
 "semantic-ui-react": "^2.0.4",
 "web-vitals": "^1.1.2"
 
+
+
+

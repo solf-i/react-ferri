@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../CartContext/CartContext'
 import Formulario from '../../components/Formulario/Formulario'
+import { Button } from 'semantic-ui-react'
 
 function Cart () {
   const { items, removeItem, clearItems, totalPrice } = useContext(CartContext)
@@ -10,49 +11,44 @@ function Cart () {
       <div>
         {items.map(item => (
           <div key={item.id}>
-            <h1>
-              {item.title}: ${item.price}
-            </h1>
-            <h3>{item.qty}</h3>
-            <button onClick={() => removeItem(item.id)}>Borrar</button>
+            <div>
+              <p>
+                {item.title}: $ {item.price}
+              </p>
+              <br />
+              <p>Cantidad: {item.qty}</p>
+            </div>
+
+            <span>
+              <Button
+                color='teal'
+                className='ui button tile boton'
+                onClick={() => removeItem(item.id)}
+              >
+                Borrar
+              </Button>
+            </span>
           </div>
         ))}
+        <h3> El total de su compra es ${totalPrice}</h3>
+        <br />
+
+        <Button
+          color='teal'
+          className='ui button tile boton'
+          onClick={() => clearItems()}
+        >
+          Vaciar Carrito
+        </Button>
+        <br />
 
         <div>
-          <h1> El total de su compra es ${totalPrice}</h1>
-          <br />
           <Formulario />
           <br />
         </div>
-        <button onClick={() => clearItems()}>Vaciar Carrito</button>
       </div>
     </>
   )
 }
 
 export default Cart
-
-//{items.id ? (
-//  <div>
-//    {items.map(item => (
-//      <div key={item.id}>
-//        <h1>
-//          {item.title}: ${item.price}
-//        </h1>
-//        <h3>{item.qty}</h3>
-//        <button onClick={() => removeItem(item.id)}>Borrar</button>
-//      </div>
-//    ))}
-//
-//    <div>
-//      <h1> El total de su compra es ${totalPrice}</h1>
-//      <button>Pagar</button>
-//    </div>
-//    <button onClick={() => clearItems()}>Vaciar Carrito</button>
-//  </div>
-//) : (
-//  <div>
-//    <h2>No hay productos en tu carrito</h2>
-//  </div>
-//)}
-//
