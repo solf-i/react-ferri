@@ -28,18 +28,19 @@ function Cart () {
                 Borrar
               </Button>
             </span>
+            <br />
+            <h3> El total de su compra es ${totalPrice}</h3>
+            <br />
+            <Button
+              color='teal'
+              className='ui button tile boton'
+              onClick={() => clearItems()}
+            >
+              Vaciar Carrito
+            </Button>
           </div>
         ))}
-        <h3> El total de su compra es ${totalPrice}</h3>
-        <br />
 
-        <Button
-          color='teal'
-          className='ui button tile boton'
-          onClick={() => clearItems()}
-        >
-          Vaciar Carrito
-        </Button>
         <br />
 
         <div>

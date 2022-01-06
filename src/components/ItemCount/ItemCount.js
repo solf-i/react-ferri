@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import './ItemCount.css'
 import { CartContext } from '../../CartContext/CartContext'
+import { Button } from 'semantic-ui-react'
 
 const ItemCount = ({ stock, initial, item }) => {
   const [qty, setQty] = useState(initial)
@@ -34,18 +35,18 @@ const ItemCount = ({ stock, initial, item }) => {
         </div>
 
         {qty > 0 ? (
-          <div
-            className='ui bottom attached button'
+          <Button
+            className='ui bottom attached fluid button'
             onClick={() => addItem(item, qty)}
           >
             <i className='cart icon'></i>
             Añadir al carrito
-          </div>
+          </Button>
         ) : (
-          <div className='ui bottom attached button disabled'>
+          <Button className='ui bottom attached button disabled'>
             <i className='cart icon'></i>
             Añadir al carrito
-          </div>
+          </Button>
         )}
       </div>
     </div>

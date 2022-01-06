@@ -46,7 +46,6 @@ function ItemDetail ({ item }) {
       {itemsData.map(album => (
         <ItemCard data={album} key={album.title} />
       ))}
-
       <ItemCount item={item} stock={5} initial={0} onAdd={addItem} />
 
       <Link to='/cart'>
