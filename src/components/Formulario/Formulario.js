@@ -42,7 +42,7 @@ function Formulario () {
 
   return (
     <div>
-      <Form>
+      <Form onSubmit={onSubmitHandler}>
         <Form.Group unstackable widths={2}>
           <Form.Input
             placeholder='Nombre'
@@ -71,7 +71,7 @@ function Formulario () {
             onChange={onChangeHandler}
           />
         </Form.Group>
-        <Button onSubmit={onSubmitHandler} type='submit'>
+        <Button color='teal' className='ui button boton'>
           Aceptar
         </Button>
       </Form>
